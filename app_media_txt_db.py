@@ -4,12 +4,13 @@ from langchain_community.document_loaders import WebBaseLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import Chroma
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI
-from dotenv import load_dotenv
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain.chains import create_history_aware_retriever, create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
+import os
 
-load_dotenv()
+os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
+
 
 def get_vectorstore_from_urls():
 
