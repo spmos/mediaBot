@@ -100,10 +100,12 @@ for message in st.session_state.chat_history:
             st.write(f"🤖: {message.content}")
         with cols[2]:
             if st.button("👍", key=f"thumbs_up_{st.session_state.chat_history.index(message)}"):
-                handle_feedback(message, "thumbs_up")
+                #handle_feedback(message, "thumbs_up")
+                print('thumbs_up button')
         with cols[3]:
             if st.button("👎", key=f"thumbs_down_{st.session_state.chat_history.index(message)}"):
-                handle_feedback(message, "thumbs_down")
+                #handle_feedback(message, "thumbs_down")
+                print('thumbs_down button')
     elif isinstance(message, HumanMessage):
         with cols[0]:
             st.write("")  # Placeholder for alignment
