@@ -1,4 +1,6 @@
 import streamlit as st
+from langchain.retrievers import ContextualCompressionRetriever
+from langchain.retrievers.document_compressors import LLMChainExtractor
 from langchain_core.messages import AIMessage, HumanMessage
 from langchain_community.document_loaders import WebBaseLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
@@ -12,9 +14,9 @@ import os
 os.environ["OPENAI_API_KEY"] = st.secrets["OPENAI_API_KEY"]
 
 
-def get_vectorstore_from_urls():
+def get_vectorstore_from_urls(vector_store_path=None):
 
-    vector_store = Chroma(persist_directory="./chroma_db_media_txt", embedding_function=OpenAIEmbeddings())
+    vector_store = Chroma(persist_directory=vector_store_path, embedding_function=OpenAIEmbeddings())
     print(vector_store._collection.count())
     #print(vector_store._collection)
     print('vector store loaded...')
@@ -23,8 +25,14 @@ def get_vectorstore_from_urls():
 def get_context_retriever_chain(vector_store):
     llm = ChatOpenAI()
     #print(vector_store)
-    retriever = vector_store.as_retriever()
-
+    retriever = vector_store.as_retriever(
+        search_type="similarity_score_threshold",
+        search_kwargs={'score_threshold': 0.6, "k": 20}
+    )
+    # retriever = vector_store.as_retriever(
+    #     search_type="mmr",
+    #     search_kwargs={'k': 8, 'lambda_mult': 0.25, 'fetch_k': 20}
+    # )
     prompt = ChatPromptTemplate.from_messages([
             MessagesPlaceholder(variable_name="chat_history"),
             ("user", "{input}"),
@@ -43,7 +51,9 @@ def get_conversational_rag_chain(retriever_chain):
     llm = ChatOpenAI()
 
     prompt = ChatPromptTemplate.from_messages([
-        ("system", "Answer the user's questions with details, based only on the below context:\n\n{context}. "
+        ("system", "Answer the user's questions with short answers, based only on the below context:\n\n{context}. "
+                   "Given your expertise in the company Mediastrom, your responses should be strictly limited to information about the company and the provided context."
+                   " Please ensure your answers are concise and directly related to context, avoiding any deviations or unrelated content."
                    "If you can not find a relevant and proper answer in this context, tell the user that you do not know the answer."),
         MessagesPlaceholder(variable_name="chat_history"),
         ("user", "{input}"),
@@ -57,11 +67,19 @@ def get_conversational_rag_chain(retriever_chain):
 def get_response(user_input, vector_store):
     retriever_chain = get_context_retriever_chain(vector_store)
     conversation_rag_chain = get_conversational_rag_chain(retriever_chain)
-    #print(st.session_state)
+    #print(st.session_state.chat_history)
     response = conversation_rag_chain.invoke({
         "chat_history": st.session_state.chat_history,
         "input": user_input
     })
+    print('\n\n===> For the new response:')
+    cnt = 1
+    for resp in response['context']:
+        print('-----------------')
+        print(cnt, ' docs context: ', resp)
+        cnt += 1
+    if not response['context']:
+        return "I have not information about that, I am sorry! 🤔"
 
     return response['answer']
 
@@ -72,10 +90,44 @@ st.title("Chat")
 if "chat_history" not in st.session_state:
     st.session_state.chat_history = [AIMessage(content="Hello deer, I am a bot, I know everything about sleep and Mediastrom company. How can I help you?")]
 if "vector_store" not in st.session_state:
-    st.session_state.vector_store = get_vectorstore_from_urls()
+    st.session_state.vector_store = get_vectorstore_from_urls('./chroma_db_media_txt')
 
-user_query = st.text_input("Type your message here...")
-submit_button = st.button("Submit")  # Add a submit button
+#user_query = st.text_input("Type your message here...")
+#submit_button = st.button("Submit")  # Add a submit button
+
+with st.form(key='user_query_form'):
+    user_query = st.text_input("Type your message here...")
+    submit_button = st.form_submit_button("Submit", type="primary")
+
+col1, col2, col3, col4 = st.columns([3, 2, 2, 2])  # Create columns for layout
+with col1:
+    sleep_coach_button = st.button("Sleep Coach")
+with col2:
+    beds_button = st.button("Beds")
+with col3:
+    mattresses_button = st.button("Mattresses")
+with col4:
+    pillows_button = st.button("Pillows")
+
+if sleep_coach_button:
+    st.session_state.chat_history = [AIMessage(
+        content="Hello deer, I am a bot, I know everything about sleep and Mediastrom company. How can I help you?")]
+    st.session_state.vector_store = get_vectorstore_from_urls('./chroma_db_media_txt')
+if beds_button:
+    st.session_state.chat_history = [AIMessage(
+        content="Hello deer, I am a bot, I know everything about Mediastrom company and its beds. How can I help you?")]
+    st.session_state.vector_store = get_vectorstore_from_urls('./chroma_db_media_beds')
+if mattresses_button:
+    st.session_state.chat_history = [AIMessage(
+        content="Hello deer, I am a bot, I know everything about Mediastrom company and its mattresses. How can I help you?")]
+    st.session_state.vector_store = get_vectorstore_from_urls('./chroma_db_media_mattresses')
+if pillows_button:
+    st.session_state.chat_history = [AIMessage(
+        content="Hello deer, I am a bot, I know everything about Mediastrom company and its pillows. How can I help you?")]
+    st.session_state.vector_store = get_vectorstore_from_urls('./chroma_db_media_pillows')
+
+
+
 
 if submit_button:  # Check if the submit button is pressed before processing the input
     if user_query:
@@ -84,33 +136,13 @@ if submit_button:  # Check if the submit button is pressed before processing the
         st.session_state.chat_history.append(AIMessage(content=response))
 
 # Function to handle thumbs up and thumbs down
-def handle_feedback(message, feedback):
-    st.session_state.feedback.append({'message': message.content, 'feedback': feedback})
-    print(st.session_state.feedback)
 
-if "feedback" not in st.session_state:
-    st.session_state.feedback = []
 
 for message in st.session_state.chat_history:
-    cols = st.columns((1, 8, 1, 1))  # Adjust the column widths as needed
     if isinstance(message, AIMessage):
-        with cols[0]:
-            st.write("")  # Placeholder for alignment
-        with cols[1]:
-            st.write(f"🤖: {message.content}")
-        with cols[2]:
-            if st.button("👍", key=f"thumbs_up_{st.session_state.chat_history.index(message)}"):
-                #handle_feedback(message, "thumbs_up")
-                print('thumbs_up button')
-        with cols[3]:
-            if st.button("👎", key=f"thumbs_down_{st.session_state.chat_history.index(message)}"):
-                #handle_feedback(message, "thumbs_down")
-                print('thumbs_down button')
+        st.write(f"🤖: {message.content}")
     elif isinstance(message, HumanMessage):
-        with cols[0]:
-            st.write("")  # Placeholder for alignment
-        with cols[1]:
-            st.write(f"**🦌: {message.content}**")
+        st.write(f"**🦌: {message.content}**")
 
 
 # ---------------------- WITHOUT HISTORY AWARE RETRIEVER ---------------------- #

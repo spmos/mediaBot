@@ -1,0 +1,295 @@
+{
+  "beds": [
+    {
+      "Parma": [
+        {
+          "description": "Experiment with colors on the headboard and customize the bed according to the signature of your hotel or your home."
+        },
+        {
+          "dimensions": "max length 160cm, max height 108cm, max width 200cm"
+        }
+      ]
+    },
+    {
+      "Napoli": [
+        {
+          "description": "Combines the comfort of the classic with the freshness of the modern, enhancing the aesthetics of the space and the quality of sleep."
+        },
+        {
+          "dimensions": "We manufacture our beds every 10cm, max length 160cm, max height 125cm, max width 200cm"
+        }
+      ]
+    },
+    {
+      "Livorno": [
+        {
+          "description": "Beautiful & Functional. Its minimal, simple lines ensure a five-star sleep in your hotel or home. Available in a wide variety of fabrics, it combines with all bases (with or without storage) & all Media Strom furniture."
+        },
+        {
+          "dimensions": "Available in all sizes for Single, Semi-Double, Double, or King Size Bed. The bed is produced every 10 cm, in widths of 90-200 cm."
+        }
+      ]
+    },
+    {
+      "Sienna": [
+        {
+          "description": "Ideal for any hotel space but not only, thanks to its simple design line and incredible durability."
+        },
+        {
+          "dimensions": "max length 165cm, max height 110cm, max width 200cm"
+        }
+      ]
+    },
+    {
+      "London": [
+        {
+          "description": "Choose light-colored fabrics to enlarge your space or warm, dark earthy tones to give a sense of 'warmth'."
+        },
+        {
+          "dimensions": "max length 160cm, max height 117cm, max width 200cm"
+        }
+      ]
+    },
+    {
+      "Barcelona": [
+        {
+          "description": "The combination of the bed fabric with the curtain or the cushions creates a complete space of unique aesthetics."
+        },
+        {
+          "dimensions": "max length 160cm, max height 123cm, max width 200cm"
+        }
+      ]
+    },
+    {
+      "Kansas": [
+        {
+          "description": "Designed in a simple, minimalist line, it matches any decoration style."
+        },
+        {
+          "dimensions": "max length 160cm, max height 105cm, max width 200cm"
+        }
+      ]
+    },
+    {
+      "Monaco": [
+        {
+          "description": "Classic design, which combines with countless decoration styles and can 'follow' the most advanced interior design trends."
+        },
+        {
+          "dimensions": "max length 160cm, max height 120cm, max width 200cm"
+        }
+      ]
+    },
+    {
+      "Lyon": [
+        {
+          "description": "Available in a wide variety of fabrics, it combines with all bases (with or without storage) & all Media Strom furniture. A superb design, which combines with countless decoration styles and can 'follow' the most advanced interior design trends."
+        }
+      ]
+    },
+    {
+      "Roma": [
+        {
+          "description": "The secret lies in the color... It can 'calm' or ignite the aesthetics of your space, following the creative line of your hotel or home."
+        },
+        {
+          "dimensions": "Available in all sizes for Single, Semi-Double, Double, or King Size Bed. max length 160cm, max height 105cm, max width 200cm"
+        }
+      ]
+    },
+    {
+      "Malta": [
+        {
+          "description": "Unique headboard, the ideal choice for king-size beds."
+        },
+        {
+          "dimensions": "max length 160cm, max height 110cm, max width 200cm"
+        }
+      ]
+    },
+    {
+      "Brooklyn": [
+        {
+          "description": "Its 'quiet' design allows it to 'integrate' into any decoration style."
+        },
+        {
+          "dimensions": "max length 160cm, max height 105cm, max width 200cm"
+        }
+      ]
+    },
+    {
+      "Amalfi": [
+        {
+          "description": "Available in a wide variety of fabrics, and it combines with all Media Strom furniture."
+        },
+        {
+          "dimensions": "The Amalfi bed is produced in widths of 205 & 225 cm and in height of 130 cm."
+        }
+      ]
+    },
+    {
+      "Tivoli": [
+        {
+          "description": "Available with 3 different pillow options: Fluffy, Forma, Slim. The fabric on the headboard is not removable. The fabric on the pillows is removable. The fabric on the pillows is with scratch, which adjusts according to the mattress choice."
+        },
+        {
+          "dimensions": "Height from the ground 106 cm, max width 180 cm. Headboard thickness 2 cm."
+        }
+      ]
+    },
+    {
+      "Sorento": [
+        {
+          "description": "Available in a wide variety of fabrics, and it combines with all Media Strom furniture. It combines with Mediflex 20 frame or with a storage base."
+        },
+        {
+          "dimensions": "The Sorento bed is produced only in the dimension 175*230 cm (for mattress 160*200 cm)."
+        }
+      ]
+    },
+    {
+      "Venice": [
+        {
+          "description": "Available in a wide variety of fabrics, and it combines with all Media Strom furniture. It combines with Mediflex 20 frame."
+        },
+        {
+          "dimensions": "The Venice bed is produced only in the dimension 176*233 cm (for mattress 160*200 cm)."
+        }
+      ]
+    },
+    {
+      "Capri": [
+        {
+          "description": "Available with a specific type of fabric, in 6 different shades."
+        },
+        {
+          "dimensions": "The Capri bed is produced only in the dimension 170*220 cm (for mattress 160*200 cm)."
+        }
+      ]
+    }
+  ],
+  "sofa beds": [
+  {
+    "gioia": [
+      {
+        "description": "The Gioia sofa has the advantage of fitting everywhere and providing immediate solutions to various issues. The most important? Decoration, hospitality, storage! Its special construction allows it to cover every need easily, quickly, and economically!"
+      },
+      {
+        "dimensions": "width 140-190 cm, height 79 cm, length 80 cm"
+      }
+    ]
+  },
+  {
+    "fede": [
+      {
+        "description": "At first glance, you will be captivated by its perfect lines and modern - yet not overly elaborate - design. However, by discovering each of its features one by one, you will realize that this particular piece of furniture is more than just a sofa. Inside it hides a sliding bed that can automatically adapt to any space and meet any need."
+      },
+      {
+        "dimensions": "width 220 cm, height 76 cm, length 97-165 cm"
+      }
+    ]
+  },
+  {
+    "felicita": [
+      {
+        "description": "Airy, with a clear aesthetic that manages to incorporate all the technology and comfort a sofa bed should have. Its design makes it easy to adapt to any space, while its unique mechanism allows it to transform into a double bed easily and quickly."
+      },
+      {
+        "dimensions": "width 165 cm, height 67-88 cm, length 97-200 cm"
+      }
+    ]
+  },
+  {
+    "amore": [
+      {
+        "description": "The 'Amore' sofa bed combines modern, minimalist design with perfect functionality, as it opens with just ONE move!"
+      },
+      {
+        "dimensions": "N/A"
+      }
+    ]
+  },
+  {
+    "paris": [
+      {
+        "description": "The Paris sofa offers both aesthetics and functionality. Decorated with large cushions that create a cozy environment for you and your guests. It features a sliding bed that can adapt to any space and meet any need. Its special construction allows it to cover every need easily, quickly, and economically!"
+      },
+      {
+        "dimensions": "width 165 cm, height 67-88 cm, length 97-200 cm"
+      }
+    ]
+  }
+],
+  "support bases": [
+  {
+    "precious": {
+      "description": "Excellent orthopedic support. Thanks to the exclusive system of independent 2-level and 3-zone springs, it ensures excellent orthopedic support and independent operation for each body without being affected by the one next to it. It is produced every 2 cm in width from 90-200 cm. Choose the legs for your bed from a range of designs and colors. All legs are available in heights of 12 and 16 cm. It works exceptionally well with the top Optimum mattresses, ensuring you a truly enjoyable sleep. It is produced every 2 cm in width from 80-200 cm to perfectly match your mattress."
+    }
+  },
+  {
+    "flexy/flexy high": {
+      "description": "Comfort and Ease. Base with interior made of high-density foam. Without springs, it will perfectly support your body, offering the embrace that relaxes you. It is produced every 2 cm in width from 90-200 cm. Choose the legs for your bed from a range of designs and colors. All legs are available in heights of 12 and 16 cm. It combines with the mattresses of the Advance/Advance Prime and Flexy series and enhances the feeling of comfort you experience. It is produced every 2 cm in width from 80-200 cm to perfectly match your mattress."
+    }
+  },
+  {
+    "basic": {
+      "description": "Proper support for you and durability for your mattress. Base with connected Bonnel springs, which ensures proper support for you and durability for your mattress, while also improving the levels of comfort you enjoy. It is produced every 2 cm in width from 90-200 cm. Choose the legs for your bed from a range of designs and colors. All legs are available in heights of 12 and 16 cm."
+    }
+  },
+  {
+    "minimal": {
+      "description": "Proper support for you and durability for your mattress. Base with a solid wooden surface, designed to be a stable support surface for any mattress. It combines with all mattresses. It is produced every 10 cm in width from 90-200 cm. It combines with all Media Strom legs in a height of 16 cm."
+    }
+  },
+  {
+    "fit": {
+      "description": "Base with a solid wooden surface specifically designed to be a stable support surface for any mattress. It combines with all mattresses. It is produced every 10 cm in width from 90-160 cm. It combines with a specific type of leg (shape and color)."
+    }
+  },
+  {
+    "storage": {
+      "description": "The convenient and functional choice. Base with a single storage space that will fit much more than you expected. It is particularly convenient and functional and is available with the specially designed dynamic frame Mediflex 20plus, to support any type of mattress. It combines with all mattresses."
+    }
+  }
+],
+  "support legs": {
+    "artemis": [
+      {
+        "cherry": {
+          "description": "Dimensions 12cm x 16cm, material cherry"
+        }
+      },
+      {
+        "natural": {
+          "description": "Dimensions 12cm x 16cm, material natural"
+        }
+      },
+      {
+        "wenge": {
+          "description": "Dimensions 12cm x 16cm, material wenge"
+        }
+      }
+    ],
+    "olympia": [
+      {
+        "cherry": {
+          "description": "Dimensions 12cm x 16cm, material cherry"
+        }
+      }
+    ],
+    "athena": [
+      {
+        "cherry": {
+          "description": "Dimensions 12cm x 16cm, material cherry"
+        }
+      }
+    ],
+    "philip": [
+      {
+        "metal": {
+          "description": "Dimensions 12cm x 16cm, material metal"
+        }
+      }
+    ]
+  }
+}
