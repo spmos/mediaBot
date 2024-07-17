@@ -51,7 +51,7 @@ def get_conversational_rag_chain(retriever_chain):
     llm = ChatOpenAI()
 
     prompt = ChatPromptTemplate.from_messages([
-        ("system", "Answer the user's questions with short answers, based only on the below context:\n\n{context}. "
+        ("system", "Answer the user's questions, based only on the below context:\n\n{context}. "
                    "Given your expertise in the company Mediastrom, your responses should be strictly limited to information about the company and the provided context."
                    " Please ensure your answers are concise and directly related to context, avoiding any deviations or unrelated content."
                    "If you can not find a relevant and proper answer in this context, tell the user that you do not know the answer."),
@@ -79,7 +79,7 @@ def get_response(user_input, vector_store):
         print(cnt, ' docs context: ', resp)
         cnt += 1
     if not response['context']:
-        return "I have not information about that, I am sorry! 🤔"
+        return "Λυπάμαι, δεν έχω τις σχετικές πληροφορίες 🤔"
 
     return response['answer']
 
@@ -88,7 +88,8 @@ st.set_page_config(page_title="Ask something about Mediastrom", page_icon="🦌"
 st.title("Chat")
 
 if "chat_history" not in st.session_state:
-    st.session_state.chat_history = [AIMessage(content="Hello deer, I am a bot, I know everything about sleep and Mediastrom company. How can I help you?")]
+    #st.session_state.chat_history = [AIMessage(content="Hello deer, I am a bot, I know everything about sleep and Mediastrom company. How can I help you?")]
+    st.session_state.chat_history = [AIMessage(content="Γεια σας, είμαι ο bot της Mediastrom, γνωρίζω τα πάντα για την εταιρεία και τα προϊόντα της. Πώς μπορώ να σας βοηθήσω;")]
 if "vector_store" not in st.session_state:
     st.session_state.vector_store = get_vectorstore_from_urls('./chroma_db_media_txt')
 
@@ -110,20 +111,28 @@ with col4:
     pillows_button = st.button("Pillows")
 
 if sleep_coach_button:
+    # st.session_state.chat_history = [AIMessage(
+    #     content="Hello deer, I am a bot, I know everything about sleep and Mediastrom company. How can I help you?")]
     st.session_state.chat_history = [AIMessage(
-        content="Hello deer, I am a bot, I know everything about sleep and Mediastrom company. How can I help you?")]
+        content="Γεια σας, είμαι ο bot της Mediastrom, γνωρίζω τα πάντα για την εταιρεία και τα προϊόντα της. Πώς μπορώ να σας βοηθήσω;")]
     st.session_state.vector_store = get_vectorstore_from_urls('./chroma_db_media_txt')
 if beds_button:
+    # st.session_state.chat_history = [AIMessage(
+    #     content="Hello deer, I am a bot, I know everything about Mediastrom company and its beds. How can I help you?")]
     st.session_state.chat_history = [AIMessage(
-        content="Hello deer, I am a bot, I know everything about Mediastrom company and its beds. How can I help you?")]
+        content="Γεια σας, είμαι ο bed-bot της Mediastrom, γνωρίζω τα πάντα για την εταιρεία και τα κρεβάτια της. Πώς μπορώ να σας βοηθήσω;")]
     st.session_state.vector_store = get_vectorstore_from_urls('./chroma_db_media_beds')
 if mattresses_button:
+    # st.session_state.chat_history = [AIMessage(
+    #     content="Hello deer, I am a bot, I know everything about Mediastrom company and its mattresses. How can I help you?")]
     st.session_state.chat_history = [AIMessage(
-        content="Hello deer, I am a bot, I know everything about Mediastrom company and its mattresses. How can I help you?")]
+        content="Γεια σας, είμαι ο mattress-bot της Mediastrom, γνωρίζω τα πάντα για την εταιρεία και τα στρώματα της. Πώς μπορώ να σας βοηθήσω;")]
     st.session_state.vector_store = get_vectorstore_from_urls('./chroma_db_media_mattresses')
 if pillows_button:
+    # st.session_state.chat_history = [AIMessage(
+    #     content="Hello deer, I am a bot, I know everything about Mediastrom company and its pillows. How can I help you?")]
     st.session_state.chat_history = [AIMessage(
-        content="Hello deer, I am a bot, I know everything about Mediastrom company and its pillows. How can I help you?")]
+        content="Γεια σας, είμαι ο pillow-bot της Mediastrom, γνωρίζω τα πάντα για την εταιρεία και τα μαξιλάρια της. Πώς μπορώ να σας βοηθήσω;")]
     st.session_state.vector_store = get_vectorstore_from_urls('./chroma_db_media_pillows')
 
 
